@@ -171,8 +171,8 @@ function FormField({ name, label, type = "text" }: { name: string; label: string
 
 function SpeakersSection() {
   const speakers = [
-    { name: "Martijn Hendriks", title: "Tech Lead, Goldfizh", image: "/images/martijn.jpg" },
-    { name: "Heidy Aartman", title: "Functietitel invullen", image: "/images/heidy.jpg" },
+    { name: "Martijn Hendriks", title: "Tech Lead, Goldfizh", image: "https://og3kiehv6scpsqls.public.blob.vercel-storage.com/AI-webinar/Martijn-nieuwe-achtergrond-uitgeknipt%20%282%29.png" },
+    { name: "Heidy Aartman", title: "Functietitel invullen", image: "https://og3kiehv6scpsqls.public.blob.vercel-storage.com/AI-webinar/Heidy_uitgeknipt.jpg" },
   ];
 
   return (
