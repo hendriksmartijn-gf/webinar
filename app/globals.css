@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
+/* ── Goldfizh Design System tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-sans: var(--font-epilogue), -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Purple brand */
+  --gf-purple-300: #A38DFB;
+  --gf-purple-600: #6331F4;
+  --gf-purple-700: #5436CE;
+  --gf-purple-900: #12101F;
+
+  /* Neutrals */
+  --gf-ink:        #12101F;
+  --gf-slate-700:  #555E6C;
+  --gf-slate-500:  #8C9BAF;
+  --gf-slate-300:  #DCE0E6;
+  --gf-slate-200:  #F0F4F8;
+
+  /* Semantic roles */
+  --bg-dark:   #12101F;
+  --bg-dark-2: #22222D;
+  --accent:    #6331F4;
+
+  /* Gradients */
+  --gf-grad-hero-dark:
+    radial-gradient(circle at 80% 50%,
+      rgba(158,153,255,.9) 0%,
+      rgba(100,92,255,.56) 40%,
+      rgba(18,16,34,0) 82%),
+    #12101F;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--gf-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Eyebrow: purple square dot before */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--gf-purple-600);
+  flex-shrink: 0;
+}
+
+/* Signature period in purple */
+.with-stop::after {
+  content: ".";
+  color: var(--gf-purple-600);
+}
+
+@layer components {
+  .btn-primary {
+    display: inline-block;
+    background: var(--gf-purple-600);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 220ms cubic-bezier(.22,1,.36,1);
+    text-align: center;
   }
-}
+  .btn-primary:hover { background: var(--gf-purple-700); }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .gf-input {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--gf-slate-300);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--gf-ink);
+    outline: none;
+    transition: border-color 200ms, box-shadow 200ms;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .gf-input:focus {
+    border-color: var(--gf-purple-600);
+    box-shadow: 0 0 0 3px rgba(99,49,244,.15);
+  }
 }
