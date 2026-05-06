@@ -14,9 +14,18 @@ export default function Home() {
 function HeroSection() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-24 text-white text-center"
-      style={{ background: "var(--gf-grad-hero-dark)" }}
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 text-white text-center overflow-hidden"
+      style={{ background: "var(--bg-dark)" }}
     >
+      <Image
+        src="https://og3kiehv6scpsqls.public.blob.vercel-storage.com/AI-webinar/AI-webinar-background"
+        alt=""
+        fill
+        className="object-cover object-center"
+        priority
+      />
+      {/* Content above the background image */}
+      <div className="relative z-10 flex flex-col items-center">
       <span className="eyebrow mb-10" style={{ color: "var(--gf-purple-300)" }}>
         Goldfizh Webinar
       </span>
@@ -54,6 +63,7 @@ function HeroSection() {
       <a href="#register" className="btn-primary" style={{ minWidth: "220px" }}>
         Registreer →
       </a>
+      </div>
     </section>
   );
 }
