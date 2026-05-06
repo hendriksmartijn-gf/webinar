@@ -24,6 +24,7 @@ function HeroSection() {
         className="object-cover object-center"
         priority
       />
+      <div className="absolute inset-0" style={{ background: "rgba(10,8,20,0.72)" }} />
       {/* Content above the background image */}
       <div className="relative z-10 flex flex-col items-center">
       <span className="eyebrow mb-10" style={{ color: "var(--gf-purple-300)" }}>
