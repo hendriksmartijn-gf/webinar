@@ -3,7 +3,7 @@
 /* ── Goldfizh Design System tokens ── */
 :root {
   --font-sans: var(--font-epilogue), -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Purple brand */
   --gf-purple-300: #A38DFB;
@@ -39,8 +39,20 @@ html, body {
   font-size: 18px;
   line-height: 1.55;
   color: var(--gf-ink);
+  background: var(--bg-dark);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Subtle film grain on hero */
+.hero-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
 /* Eyebrow: purple square dot before */
@@ -68,15 +80,72 @@ html, body {
 }
 
 @layer components {
+  /* ── Form (dark variant) ── */
+  .form-label {
+    font-family: var(--font-dm-mono), ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .form-input {
+    font-family: var(--font-syne), sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    padding: 12px 0;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    transition: border-bottom-color 200ms ease;
+    -webkit-appearance: none;
+  }
+  .form-input:focus {
+    border-bottom-color: #ffffff;
+    outline: none;
+    box-shadow: none;
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.25); }
+
+  .btn-form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #0a0a0a;
+    font-family: var(--font-syne), sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 9999px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 200ms ease;
+  }
+  .btn-form-submit:hover { opacity: 0.85; }
+
   .btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
     background: var(--gf-purple-600);
     color: #fff;
     font-family: var(--font-sans);
-    font-weight: 700;
+    font-weight: 400;
     font-size: 16px;
     letter-spacing: -0.01em;
-    padding: 14px 32px;
+    padding: 14px 28px;
     border-radius: 4px;
     text-decoration: none;
     border: none;

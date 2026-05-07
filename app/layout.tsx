@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Epilogue, JetBrains_Mono } from "next/font/google";
+import { Epilogue, JetBrains_Mono, DM_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
 const epilogue = Epilogue({
@@ -9,9 +9,21 @@ const epilogue = Epilogue({
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
+  variable: "--font-jetbrains",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +36,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="nl" className={`${epilogue.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="nl"
+      className={`${epilogue.variable} ${jetbrainsMono.variable} ${dmMono.variable} ${syne.variable}`}
+      style={{ "--font-mono": "var(--font-jetbrains), ui-monospace, 'SF Mono', Menlo, monospace" } as React.CSSProperties}
+    >
       <body className="antialiased">{children}</body>
     </html>
   );
