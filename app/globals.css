@@ -113,7 +113,7 @@ html, body {
     outline: none;
     box-shadow: none;
   }
-  .form-input::placeholder { color: rgba(255,255,255,0.25); }
+  .form-input::placeholder { color: rgba(255,255,255,0.25); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em; }
 
   .btn-form-submit {
     display: inline-flex;
