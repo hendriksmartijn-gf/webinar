@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FluidShader from "./FluidShader";
 
 function Arrow() {
   return (
@@ -22,20 +23,9 @@ export default function Home() {
 function HeroSection() {
   return (
     <section
-      className="hero-grain relative md:min-h-screen flex flex-col justify-start md:justify-end px-8 md:px-16 pb-16 md:pb-20 pt-20 md:pt-32 text-white overflow-hidden"
+      className="hero-grain relative flex flex-col justify-start px-8 md:px-16 pt-20 md:pt-[14%] pb-16 md:pb-[8%] text-white overflow-hidden"
     >
-      {/* Subtle purple glow, bottom-left */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          bottom: "-10%",
-          left: "-5%",
-          width: "60vw",
-          height: "60vw",
-          background: "radial-gradient(circle, rgba(99,49,244,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
+      <FluidShader />
 
       <div className="relative z-10" style={{ maxWidth: "1400px", width: "100%", margin: "0 auto" }}>
         {/* Top meta row: label + date/time/place */}
@@ -70,10 +60,10 @@ function HeroSection() {
           style={{
             fontFamily: "var(--font-sans)",
             fontWeight: 300,
-            fontSize: "clamp(56px, 7.5vw, 96px)",
+            fontSize: "clamp(56px, 6.5vw, 120px)",
             lineHeight: 1.0,
             letterSpacing: "-0.04em",
-            maxWidth: "14ch",
+            maxWidth: "18ch",
           }}
         >
           AI & jouw organisatie:{" "}
