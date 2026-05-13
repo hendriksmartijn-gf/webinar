@@ -22,7 +22,7 @@ export default function Home() {
 function HeroSection() {
   return (
     <section
-      className="hero-grain relative min-h-screen flex flex-col justify-start md:justify-end px-8 md:px-16 pb-20 pt-24 md:pt-32 text-white overflow-hidden"
+      className="hero-grain relative md:min-h-screen flex flex-col justify-start md:justify-end px-8 md:px-16 pb-16 md:pb-20 pt-20 md:pt-32 text-white overflow-hidden"
     >
       {/* Subtle purple glow, bottom-left */}
       <div
